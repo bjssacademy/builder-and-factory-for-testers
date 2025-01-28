@@ -1,4 +1,4 @@
-## Using the Factory for Testing (API or UI)  
+# Using the Factory for Testing (API or UI)  
 
 Factories are a tester's best friend when it comes to creating **dynamic, reusable, and valid test data**. They help streamline the setup process and avoid repetitive, hard-coded values in test cases - or worse, reading from static files. 
 

@@ -8,16 +8,18 @@ Let's get into it!
 
 ## **Refactoring Plan**
 
-1. **Separate Concerns**:  
+1. **Separate Concerns**
+
    Split the code into logically distinct components:
    - `UserProfile` model (data structure and validation logic).
    - `RoleConfiguration` for managing roles and permissions.
    - `UserProfileBuilder` for constructing `UserProfile` objects.
 
-2. **Leverage TypeScript Classes**:  
+2. **Leverage TypeScript Classes**
+
    Introduce classes to encapsulate functionality, enforce contracts (via types/interfaces), and provide clear responsibilities.
 
-3. **File Organisation**:
+3. **File Organisation**
    - Each file will focus on a single responsibility.
    - This separation ensures that changes to one part of the system (e.g., role definitions) don’t inadvertently affect others.
 
@@ -226,13 +228,13 @@ That's pretty cool, right? Now that we have implemented the builder pattern, we 
 
 ## **OOP and TypeScript - Why?**
 
-1. **Encapsulation:**  
+1. **Encapsulation**  
    Classes encapsulate data and behaviour, making it easy to manage complexity.
 
-2. **Type Safety:**  
+2. **Type Safety**  
    TypeScript ensures errors (e.g., invalid permissions or missing required properties) are caught during development.
 
-3. **Extensibility:**  
+3. **Extensibility**  
    Adding new roles, permissions, or profile features is straightforward without affecting existing functionality.
 
 ---

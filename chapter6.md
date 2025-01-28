@@ -157,20 +157,25 @@ console.log(viewerUser.toString());
 
 ### **Why This Is Better**
 
-1. **Encapsulation**:  
-   - The `Role` class encapsulates the role's name and permissions, ensuring they cannot be accidentally mismatched.
+1. **Encapsulation** 
+   
+   The `Role` class encapsulates the role's name and permissions, ensuring they cannot be accidentally mismatched.
 
-2. **Type Safety**:  
-   - Roles are now represented by a dedicated type (`Role`), which eliminates invalid states like assigning incorrect permissions to a role.
+2. **Type Safety**
+   
+   Roles are now represented by a dedicated type (`Role`), which eliminates invalid states like assigning incorrect permissions to a role.
 
-3. **Simpler Builder**:  
-   - The builder is "dumb" and focuses on its core responsibility: assembling a `UserProfile`. It no longer needs to manage role-specific logic.
+3. **Simpler Builder**
+   
+   The builder is "dumb" and focuses on its core responsibility: assembling a `UserProfile`. It no longer needs to manage role-specific logic.
 
-4. **Centralised Logic**:  
-   - Role definitions and permissions are managed within the `Role` class. Adding or modifying roles happens in one place, improving maintainability.
+4. **Centralised Logic**
 
-5. **Cleaner API**:  
-   - Using `Role.admin()`, `Role.editor()`, etc., is more expressive and readable than manually specifying permissions everywhere.
+   Role definitions and permissions are managed within the `Role` class. Adding or modifying roles happens in one place, improving maintainability.
+
+5. **Cleaner API**
+
+   Using `Role.admin()`, `Role.editor()`, etc., is more expressive and readable than manually specifying permissions everywhere.
 
 ---
 
@@ -186,7 +191,7 @@ A **static method** belongs to the class itself rather than to an instance of th
 
 The `UserProfileFactory` doesn’t maintain any *internal state or store data*. Its sole purpose is to create `UserProfile` objects based on predefined logic. Since it doesn’t rely on instance-specific data, **creating an instance of the factory would be redundant**.
 
-For example:
+As an example -
 ```typescript
 const factory = new UserProfileFactory(); // No need for this.
 const adminUser = factory.createAdmin();
@@ -203,8 +208,7 @@ const adminUser = UserProfileFactory.createAdmin(); // Cleaner and more efficien
 
 Factories are often utility classes—designed to be **reusable** from anywhere in the codebase. By making the methods static, the factory becomes a **globally accessible utility**. You don’t have to create an instance of the factory every time you want to use it.
 
-For example:
-- A `UserProfileFactory` can be used in multiple places without worrying about creating or managing its instances.
+A `UserProfileFactory` can be used in multiple places without worrying about creating or managing its instances.
 
 ---
 
@@ -212,7 +216,6 @@ For example:
 
 Static methods simplify the API by removing the need to instantiate the class. This makes the code more concise and easier to use, especially in cases where the factory is frequently invoked.
 
-Example:
 ```typescript
 // Static approach (simple)
 const viewerUser = UserProfileFactory.createViewer();
@@ -230,9 +233,9 @@ With static methods, you skip the unnecessary boilerplate of creating a factory 
 
 Using static methods enforces **stateless design**. A `UserProfileFactory` doesn't need to hold state because its purpose is purely functional — it creates objects based on inputs or predefined rules. 
 
-Stateless design has several advantages:
-- **Thread-safety**: Since no state is maintained, static methods are inherently thread-safe.
-- **Reusability**: The factory can be reused without worrying about side effects from lingering state.
+Stateless design has several advantages, including
+- **Thread-safety** - Since no state is maintained, static methods are inherently thread-safe.
+- **Reusability** - The factory can be reused without worrying about side effects from lingering state.
 
 ---
 

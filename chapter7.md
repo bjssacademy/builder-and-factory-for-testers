@@ -83,7 +83,7 @@ When undertaking this yourself, always keep the following in mind:
 - Prioritise strong typing and constraints to avoid invalid states.
 - Leverage proven patterns (Builder, Factory, etc.) to simplify object creation.
 
-I hope you enjoyed the journey! 
+Now, how do we use it when testing? Read on...
 
 ---
 

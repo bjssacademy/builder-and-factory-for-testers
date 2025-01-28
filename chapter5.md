@@ -95,12 +95,16 @@ Keeping the builder "dumb" aligns with the principle of **single responsibility*
 ### **Why the Previous Design Was Bad**
 
 1. **Builder Knows Too Much**
+
    By adding `forAdmin`, `forEditor`, etc., the builder now contains knowledge of roles and their configurations. This increases its responsibilities, making it harder to maintain and extend.
 
 2. **Reduced Flexibility**  
+
    If roles change (e.g., new roles or permissions), we must modify the builder itself. This violates the **open-closed principle** (OCP), which states that code should be open for extension but closed for modification.
 
 3. **Unnecessary Complexity** 
+
+
    Adding specific methods for every role clutters the builder's API. It increases the surface area of potential bugs and confuses its purpose (constructing objects step by step).
 
 ---

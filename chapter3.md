@@ -10,10 +10,9 @@ Let’s introduce a **builder pattern** to make the process of constructing user
 We'll create a `UserProfileBuilder` class that allows step-by-step construction of a `UserProfile`. The builder will include *methods* to set the `name`, `age`, and `role`, and will handle adding the correct permissions based on the role.
 
 **Why**  
-This approach:
-- Improves readability when constructing profiles.
-- Reduces the risk of errors in specifying the profile’s attributes.
-- Makes it easier to add optional or conditional steps in the future.
+- Improve readability when constructing profiles.
+- Reduce the risk of errors in specifying the profile’s attributes.
+- Make it easier to add optional or conditional steps in the future.
 
 ---
 
@@ -176,8 +175,6 @@ Let's refactor the `UserProfileBuilder` class to replace the `setXX` methods wit
 
 Here’s how the builder will look after the refactor.
 
-#### Code:
-
 ```typescript
 class UserProfileBuilder {
   private profile: Partial<UserProfile> = {};
@@ -239,13 +236,16 @@ console.log(user4);
 
 ### **Benefits of Using `withXX`**
 
-1. **Declarative API**:  
+1. **Declarative API**
+
    The `withXX` naming aligns the builder's interface with how it will be consumed. It reads more naturally, e.g., `withName("Alice")` instead of `setName("Alice")`.
 
-2. **Fluent Interface**:  
+2. **Fluent Interface**
+
    The method chain conveys the *what* of the object being built, not the *how*. This abstraction makes the code more expressive and easier to understand.
 
-3. **Encapsulation of Logic**:  
+3. **Encapsulation of Logic**
+
    The focus shifts from mutating internal state (`setXX`) to expressing intent (`withXX`), which is more aligned with the **OOP principle of abstraction**.
 
 ---
